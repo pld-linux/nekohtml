@@ -1,0 +1,26 @@
+--- src/html/org/cyberneko/html/HTMLScanner.java.sav	2005-06-19 06:04:02.000000000 +0200
++++ src/html/org/cyberneko/html/HTMLScanner.java	2005-10-11 07:46:06.000000000 +0200
+@@ -558,6 +558,11 @@
+     // XMLLocator methods
+     //
+ 
++    /** Returns the xml version. */
++    public String getXMLVersion() {
++        return null;
++    } // getXMLVersion():String
++
+     /** Returns the encoding. */
+     public String getEncoding() {
+         return fCurrentEntity != null ? fCurrentEntity.encoding : null;
+@@ -584,6 +589,11 @@
+     } // getExpandedSystemId():String
+ 
+     /** Returns the current line number. */
++    public int getCharacterOffset() { 
++        return -1; 
++    } // getCharacterOffset():int
++
++    /** Returns the current line number. */
+     public int getLineNumber() { 
+         return fCurrentEntity != null ? fCurrentEntity.lineNumber : -1; 
+     } // getLineNumber():int

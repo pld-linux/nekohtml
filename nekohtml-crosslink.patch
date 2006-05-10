@@ -1,0 +1,26 @@
+--- build-html.xml~	2004-06-30 09:03:39.000000000 +0300
++++ build-html.xml	2004-07-03 19:52:56.973843825 +0300
+@@ -35,6 +35,10 @@
+  <property name='version.dir'      value='bin/html/src'/>
+  <property name='version.manifest' value='${version.dir}/MANIFEST_html'/>
+  <property name='version.dir.java' value='${version.dir}/org/cyberneko/html'/>
++ <property name='j2se.javadoc' value='http://java.sun.com/j2se/1.4.2/docs/api/'/>
++ <property name='xni.javadoc' value='http://xml.apache.org/xerces2-j/javadocs/xni/'/>
++ <property name='xerces.javadoc' value='http://xml.apache.org/xerces2-j/javadocs/xerces2/'/>
++
+  <property name='version.java'     value='${version.dir.java}/Version.java'/>
+  
+  <!-- TARGETS --> 
+@@ -101,7 +105,11 @@
+            windowtitle="${Name} Implementation"
+            doctitle="${Name}"
+            bottom="${copyright}" 
+-           />
++           >
++    <link href="${j2se.javadoc}"/>
++    <link href="${xni.javadoc}"/>
++    <link href="${xerces.javadoc}"/>
++  </javadoc>
+   <property name='docs.done' value='true'/>
+  </target>
+ 
