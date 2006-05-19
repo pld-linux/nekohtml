@@ -11,7 +11,7 @@ Source1:	%{name}-filter.sh
 Patch0:		%{name}-crosslink.patch
 Patch1:		%{name}-HTMLScanner.patch
 URL:		http://www.apache.org/~andyc/neko/doc/html/
-BuildRequires:	jakarta-ant
+BuildRequires:	ant
 # for javadoc
 BuildRequires:	java-sun
 BuildRequires:	xerces-j >= 2.3.0
