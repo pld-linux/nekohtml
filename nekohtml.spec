@@ -1,5 +1,5 @@
 Summary:	HTML scanner and tag balancer
-Summary(pl):	Narzêdzie do skanowania i równowa¿enia znaczników HTML
+Summary(pl.UTF-8):   NarzÄ™dzie do skanowania i rÃ³wnowaÅ¼enia znacznikÃ³w HTML
 Name:		nekohtml
 Version:	0.9.5
 Release:	0.1
@@ -31,42 +31,42 @@ the Xerces Native Interface (XNI) that is the foundation of the
 Xerces2 implementation. This enables you to use the NekoHTML parser
 with existing XNI tools without modification or rewriting code.
 
-%description -l pl
-NekoHTML to proste narzêdzie do skanowania i równowa¿enia znaczników
-HTML pozwalaj±ce programistom aplikacji na analizê dokumentów HTML i
-dostêp do informacji przy u¿yciu standardowych interfejsów XML.
-Analizator potrafi skanowaæ pliki HTML i "poprawiaæ" wiele popularnych
-b³êdów pope³nianych przez autorów (ludzi i programy) pisz±cych
-dokumenty HTML. NekoHTML dodaje brakuj±ce elementy rodzicielskie;
-automatycznie zamyka elementy z opcjonalnymi znacznikami koñcowymi;
-potrafi obs³u¿yæ niedopasowane znaczniki elementów inline. NekoHTML
-jest napisane przy u¿yciu natywnego interfejsu Xercesa (XNI) bêd±cego
-podstaw± implementacji Xerces2. Pozwala to u¿ywaæ analizatora NekoHTML
-z istniej±cymi narzêdziami XNI bez modyfikowania czy przepisywania
+%description -l pl.UTF-8
+NekoHTML to proste narzÄ™dzie do skanowania i rÃ³wnowaÅ¼enia znacznikÃ³w
+HTML pozwalajÄ…ce programistom aplikacji na analizÄ™ dokumentÃ³w HTML i
+dostÄ™p do informacji przy uÅ¼yciu standardowych interfejsÃ³w XML.
+Analizator potrafi skanowaÄ‡ pliki HTML i "poprawiaÄ‡" wiele popularnych
+bÅ‚Ä™dÃ³w popeÅ‚nianych przez autorÃ³w (ludzi i programy) piszÄ…cych
+dokumenty HTML. NekoHTML dodaje brakujÄ…ce elementy rodzicielskie;
+automatycznie zamyka elementy z opcjonalnymi znacznikami koÅ„cowymi;
+potrafi obsÅ‚uÅ¼yÄ‡ niedopasowane znaczniki elementÃ³w inline. NekoHTML
+jest napisane przy uÅ¼yciu natywnego interfejsu Xercesa (XNI) bÄ™dÄ…cego
+podstawÄ… implementacji Xerces2. Pozwala to uÅ¼ywaÄ‡ analizatora NekoHTML
+z istniejÄ…cymi narzÄ™dziami XNI bez modyfikowania czy przepisywania
 kodu.
 
 %package javadoc
 Summary:	Javadoc for %{name}
-Summary(pl):	Dokumentacja javadoc dla pakietu %{name}
+Summary(pl.UTF-8):   Dokumentacja javadoc dla pakietu %{name}
 Group:		Documentation
 
 %description javadoc
 Javadoc for %{name}.
 
-%description javadoc -l pl
+%description javadoc -l pl.UTF-8
 Dokumentacja javadoc dla pakietu %{name}.
 
 %package demo
 Summary:	Demo for %{name}
-Summary(pl):	Pliki demonstracyjne dla pakietu %{name}
+Summary(pl.UTF-8):   Pliki demonstracyjne dla pakietu %{name}
 Group:		Applications/Text
 Requires:	%{name} = %{version}-%{release}
 
 %description demo
 Demonstrations and samples for %{name}.
 
-%description demo -l pl
-Pliki demonstracyjne i przyk³ady dla pakietu %{name}.
+%description demo -l pl.UTF-8
+Pliki demonstracyjne i przykÅ‚ady dla pakietu %{name}.
 
 %prep
 %setup -q
