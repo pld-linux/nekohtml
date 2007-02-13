@@ -1,5 +1,5 @@
 Summary:	HTML scanner and tag balancer
-Summary(pl.UTF-8):   Narzędzie do skanowania i równoważenia znaczników HTML
+Summary(pl.UTF-8):	Narzędzie do skanowania i równoważenia znaczników HTML
 Name:		nekohtml
 Version:	0.9.5
 Release:	0.1
@@ -47,7 +47,7 @@ kodu.
 
 %package javadoc
 Summary:	Javadoc for %{name}
-Summary(pl.UTF-8):   Dokumentacja javadoc dla pakietu %{name}
+Summary(pl.UTF-8):	Dokumentacja javadoc dla pakietu %{name}
 Group:		Documentation
 
 %description javadoc
@@ -58,7 +58,7 @@ Dokumentacja javadoc dla pakietu %{name}.
 
 %package demo
 Summary:	Demo for %{name}
-Summary(pl.UTF-8):   Pliki demonstracyjne dla pakietu %{name}
+Summary(pl.UTF-8):	Pliki demonstracyjne dla pakietu %{name}
 Group:		Applications/Text
 Requires:	%{name} = %{version}-%{release}
 
