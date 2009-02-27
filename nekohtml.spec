@@ -2,7 +2,7 @@ Summary:	HTML scanner and tag balancer
 Summary(pl.UTF-8):	Narzędzie do skanowania i równoważenia znaczników HTML
 Name:		nekohtml
 Version:	0.9.5
-Release:	0.1
+Release:	1
 License:	Apache-like
 Group:		Applications/Text
 Source0:	http://www.apache.org/~andyc/neko/%{name}-%{version}.tar.gz
