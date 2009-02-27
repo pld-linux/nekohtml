@@ -12,8 +12,7 @@ Patch0:		%{name}-crosslink.patch
 Patch1:		%{name}-HTMLScanner.patch
 URL:		http://www.apache.org/~andyc/neko/doc/html/
 BuildRequires:	ant
-# for javadoc
-BuildRequires:	java-sun
+BuildRequires:	java-gcj-compat-devel
 BuildRequires:	xerces-j >= 2.3.0
 Requires:	xerces-j >= 2.3.0
 BuildArch:	noarch
@@ -78,6 +77,7 @@ find . -name "*.jar" -exec rm -f {} \;
 %build
 export CLASSPATH=$(build-classpath xerces-j2)
 ant -f build-html.xml \
+	-Dbuild.compiler=extJavac \
 	-Djarfile=%{name}-%{version}.jar \
 	-DjarfileXni=%{name}-xni-%{version}.jar \
 	-DjarfileSamples=%{name}-samples-%{version}.jar \
@@ -99,13 +99,13 @@ ln -s %{name}-xni-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-xni.jar
 install -Dpm 755 %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/%{name}-filter
 
 # Samples
-install -d $RPM_BUILD_ROOT%{_datadir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install -p %{name}-samples-%{version}.jar \
-	$RPM_BUILD_ROOT%{_datadir}/%{name}-%{version}
+	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # Javadocs
 install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
-cp -pr bin/package/nekohtml-*/doc/html/javadoc/* \
+cp -a bin/package/nekohtml-*/doc/html/javadoc/* \
 	$RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
 
@@ -136,4 +136,4 @@ ln -s %{name}-%{version} %{_javadocdir}/%{name}
 
 %files demo
 %defattr(644,root,root,755)
-%{_datadir}/%{name}-%{version}
+%{_examplesdir}/%{name}-%{version}
