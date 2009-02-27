@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	javadoc		# don't build apidocs
+#
 Summary:	HTML scanner and tag balancer
 Summary(pl.UTF-8):	Narzędzie do skanowania i równoważenia znaczników HTML
 Name:		nekohtml
@@ -13,7 +17,8 @@ Patch1:		%{name}-HTMLScanner.patch
 URL:		http://www.apache.org/~andyc/neko/doc/html/
 BuildRequires:	ant
 BuildRequires:	java-gcj-compat-devel
-BuildRequires:	xerces-j >= 2.3.0
+BuildRequires:	java-xerces >= 2.3.0
+%{?with_javadoc:BuildRequires:	java-xerces-javadoc >= 2.3.0}
 Requires:	xerces-j >= 2.3.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -81,9 +86,11 @@ ant -f build-html.xml \
 	-Djarfile=%{name}-%{version}.jar \
 	-DjarfileXni=%{name}-xni-%{version}.jar \
 	-DjarfileSamples=%{name}-samples-%{version}.jar \
+%if %{with javadoc}
 	-Dj2se.javadoc=%{_javadocdir}/java \
-	-Dxni.javadoc=%{_javadocdir}/xerces-j2-xni \
-	-Dxerces.javadoc=%{_javadocdir}/xerces-j2-impl \
+	-Dxni.javadoc=%{_javadocdir}/xerces/xni \
+	-Dxerces.javadoc=%{_javadocdir}/xerces/xerces2 \
+%endif
 	clean package jar-xni test
 
 %install
@@ -103,11 +110,13 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install -p %{name}-samples-%{version}.jar \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
+%if %{with javadoc}
 # Javadocs
 install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 cp -a bin/package/nekohtml-*/doc/html/javadoc/* \
 	$RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
+%endif
 
 # Avoid having javadocs in %doc.
 rm -rf bin/package/nekohtml-*/doc/html/javadoc
@@ -119,9 +128,11 @@ ln -sf %{_javadocdir}/%{name}-%{version} javadoc
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %{with javadoc}
 %post javadoc
 rm -f %{_javadocdir}/%{name}
 ln -s %{name}-%{version} %{_javadocdir}/%{name}
+%endif
 
 %files
 %defattr(644,root,root,755)
