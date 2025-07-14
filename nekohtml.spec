@@ -75,8 +75,8 @@ Pliki demonstracyjne i przykłady dla pakietu %{name}.
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -b .sav
+%patch -P0 -p0
+%patch -P1 -b .sav
 find . -name "*.jar" -exec rm -f {} \;
 
 %build
